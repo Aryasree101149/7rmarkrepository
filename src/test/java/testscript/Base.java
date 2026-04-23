@@ -1,0 +1,48 @@
+package testscript;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
+//import utilities.WaitUtility;
+
+public class Base {
+	public WebDriver driver;
+	
+	@Parameters("browser")
+	@BeforeMethod(alwaysRun=true)
+	
+    public void browserInitinalisation(String browser) throws Exception {
+		if(browser.equalsIgnoreCase("chrome")) {
+			driver = new ChromeDriver();
+		}
+		else if(browser.equalsIgnoreCase("firefox")) {
+			 driver = new FirefoxDriver();
+		}
+		else if(browser.equalsIgnoreCase("edge")) {
+			 driver = new EdgeDriver();
+		}
+		else {
+			throw new Exception("Invalid Browser") ;
+
+		}
+	
+	 driver = new ChromeDriver();  //browser launch
+	  driver.get("https://groceryapp.uniqassosiates.com/admin/login");  // url launch
+	 // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICITWAIT));
+	 driver.manage().window().maximize();
+ }
+   @AfterMethod(alwaysRun=true)
+ public void browserQuitandClose() {
+	// driver.close();  //To close the current window
+	 driver.quit();
+ }
+	
+
+}
