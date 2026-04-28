@@ -5,13 +5,15 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base {
-
-    @Test
+    HomePage home;
+    ManageNewsPage newspage;
+    @Test(description="Test case description")
     public void manageNewsTest() throws IOException {
 
     	String username = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -19,18 +21,18 @@ public class ManageNewsTest extends Base {
         String newstext = ExcelUtility.getStringData(0, 0, "news");
 
         LoginPage loginpage = new LoginPage(driver);
-        loginpage.enterUserName(username);
-        loginpage.enterPassword(password);
-        loginpage.clickOnSignIn();
+        loginpage.enterUserName(username).enterPassword(password);
+        //loginpage.enterPassword(password);
+        home=loginpage.clickOnSignIn();
 
-        ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
-        manageNewsPage.clickNewsMoreinfo();
-        manageNewsPage.clickNewonManageNews();
-        manageNewsPage.typeNewsonManageNews(newstext);
-        System.out.println("Data: " + newstext);
-        manageNewsPage.clickSaveonManageNews();
-        boolean isAlertDisplayed = manageNewsPage.isNewsAlertDisplayed();
+       // ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
+       newspage= home.clickonManageNewsMoreinfo();
+       newspage.clickNewonManageNews().typeNewsonManageNews(newstext).clickSaveonManageNews();
+       // manageNewsPage.typeNewsonManageNews(newstext);
+       // System.out.println("Data: " + newstext);
+       // manageNewsPage.clickSaveonManageNews();
+        boolean isAlertDisplayed = newspage.isNewsAlertDisplayed();
         Assert.assertTrue(isAlertDisplayed, "News alert is NOT displayed");
-        manageNewsPage.clickSaveonManageNews();
+        newspage.clickSaveonManageNews();
     }
 }

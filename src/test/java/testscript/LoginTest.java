@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import constant.Constant;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -15,7 +17,7 @@ public class LoginTest extends Base {
 	// public void refreshPage() {
 	// driver.navigate().refresh();
 	// }
-
+  HomePage home;
 	@Test
 	// ( groups= {"regression"},retryAnalyzer=retry.Retry.class)
 	public void verifyLoginSuccessfullyWithValidUsernameAndValidPassword() throws IOException {
@@ -26,11 +28,11 @@ public class LoginTest extends Base {
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserName(username);
-		loginpage.enterPassword(password);
-		loginpage.clickOnSignIn();
+		loginpage.enterUserName(username).enterPassword(password);
+		//loginpage.enterPassword(password);
+		home=loginpage.clickOnSignIn();
 		boolean homepage = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(homepage);
+		Assert.assertTrue(homepage,Constant.VALIDMSG);
 
 	}
 
@@ -44,11 +46,11 @@ public class LoginTest extends Base {
 
 		LoginPage loginpage = new LoginPage(driver);
 		//loginpage.login(username, password);
-		loginpage.enterUserName(username);
-		loginpage.enterPassword(password);
-		loginpage.clickOnSignIn();
+		loginpage.enterUserName(username).enterPassword(password);
+		//loginpage.enterPassword(password);
+		home=loginpage.clickOnSignIn();
 		boolean message = loginpage.isAlertMessageDisplayed();
-		Assert.assertTrue(message);
+		Assert.assertTrue(message,Constant.INVALIDPWD);
 	}
 
 	@Test
@@ -60,12 +62,12 @@ public class LoginTest extends Base {
 		String password = ExcelUtility.getStringData(3, 1, "loginpage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserName(username);
-		loginpage.enterPassword(password);
-		loginpage.clickOnSignIn();
+		loginpage.enterUserName(username).enterPassword(password);
+		//loginpage.enterPassword(password);
+		home=loginpage.clickOnSignIn();
 		//loginpage.login(username, password);
 		boolean message = loginpage.isAlertMessageDisplayed();
-		Assert.assertTrue(message);
+		Assert.assertTrue(message,Constant.INVALIDUSERNAME);
 
 	}
 
@@ -78,12 +80,12 @@ public class LoginTest extends Base {
 		String password = ExcelUtility.getStringData(4, 1, "loginpage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUserName(username);
-		loginpage.enterPassword(password);
-		loginpage.clickOnSignIn();
+		loginpage.enterUserName(username).enterPassword(password);
+		//loginpage.enterPassword(password);
+		home=loginpage.clickOnSignIn();
 		//loginpage.login(username, password);
 		boolean message = loginpage.isAlertMessageDisplayed();
-		Assert.assertTrue(message);
+		Assert.assertTrue(message,Constant.INVALIDCREDENTIALS);
 
 	}
 }

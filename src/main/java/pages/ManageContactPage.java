@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,23 +34,31 @@ public void clickActiononContact() {
 	
 	actiononcontact.click();	
 }
-public void typePhoneContact(String typenewsvalue) {
+public void typePhoneContact(int typephno) {
 	phonecontact.clear();
 	
-	phonecontact.sendKeys("34439857847");
+	phonecontact.sendKeys("phonenumber");
 
 }
-public void typeDeliveryTime(String typenewsvalue) {
+public void typeDeliveryTime(String time) {
 	deliverytime.clear();
 	
-	deliverytime.sendKeys("3PM");
-
+	deliverytime.sendKeys(time); 
 }
 
 
 public void clickUpdateonContactPage() {
-	
-	updatebutton.click();
+
+    Waitutility wait = new Waitutility();
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", updatebutton);
+    wait.waitForElementToBeClickable(driver, updatebutton);
+
+    try {
+    	updatebutton.click();
+    } catch (Exception e) {
+        js.executeScript("arguments[0].click();", updatebutton);
+    }
 }
 
 public boolean isUpdateAlertDisplayed() {

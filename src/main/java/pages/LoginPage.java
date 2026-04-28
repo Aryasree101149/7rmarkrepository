@@ -23,21 +23,24 @@ public LoginPage(WebDriver driver) {
 }
 
 
-public void enterUserName(String usernamevalue) {
+public LoginPage enterUserName(String usernamevalue) {
 	username.clear();   
 	username.sendKeys(usernamevalue);
+	return this;
 	
 }
 
-public void enterPassword(String passwordvalue) {
+public LoginPage enterPassword(String passwordvalue) {
 	password.clear();
 	password.sendKeys(passwordvalue);
+	return this;
 }
 
-public void clickOnSignIn() {
+public HomePage clickOnSignIn() {
 	//WaitUtility wait = new WaitUtility();
 	//wait.waitForElementToBeClickable(driver, alert);
 	button.click();
+	return new HomePage(driver) ;
 }
 
 //public void login(String username, String password) {

@@ -16,31 +16,34 @@ public class ManageNewsPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-	    @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement managenewsmoreinfo;
+	   // @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")WebElement managenewsmoreinfo;
 	    @FindBy(xpath="//a[@onclick='click_button(1)']")WebElement newonmanagenews;
 	    @FindBy(xpath="//textarea[@placeholder='Enter the news']")WebElement typenews;
 	    @FindBy(xpath="//button[@class='btn btn-danger']")WebElement savebutton;
 	    @FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement newsalert;
 
 	    
-public void clickNewsMoreinfo() {
+/*public void clickonManageNewsMoreinfo() {
 	
 	managenewsmoreinfo.click();
 	
-}
-public void clickNewonManageNews() {
+}*/
+public ManageNewsPage clickNewonManageNews() {
 	
 	newonmanagenews.click();
+	return this;
 	
 }
-public void typeNewsonManageNews(String typenewsvalue) {
+public ManageNewsPage typeNewsonManageNews(String typenewsvalue) {
 	
 	typenews.sendKeys(typenewsvalue);
+	return this;
 
 }
-public void clickSaveonManageNews() {
+public ManageNewsPage clickSaveonManageNews() {
 	
 	savebutton.click();
+	return this;
 }
 
 public boolean isNewsAlertDisplayed() {

@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-24T01:15:28 IST" name="Suite" finished-at="2026-04-24T01:15:42 IST" duration-ms="14032">
+  <suite started-at="2026-04-28T19:24:38 IST" name="Suite" finished-at="2026-04-28T19:24:54 IST" duration-ms="15727">
     <groups>
     </groups>
-    <test started-at="2026-04-24T01:15:28 IST" name="Test" finished-at="2026-04-24T01:15:42 IST" duration-ms="14032">
+    <test started-at="2026-04-28T19:24:38 IST" name="Test" finished-at="2026-04-28T19:24:54 IST" duration-ms="15727">
       <class name="testscript.ManageNewsTest">
-        <test-method is-config="true" signature="browserInitinalisation(java.lang.String)[pri:0, instance:testscript.ManageNewsTest@765d7657]" started-at="2026-04-24T01:15:28 IST" name="browserInitinalisation" finished-at="2026-04-24T01:15:35 IST" duration-ms="7368" status="PASS">
+        <test-method is-config="true" signature="browserInitinalisation(java.lang.String)[pri:0, instance:testscript.ManageNewsTest@14dd7b39]" started-at="2026-04-28T19:24:38 IST" name="browserInitinalisation" finished-at="2026-04-28T19:24:48 IST" duration-ms="9296" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,14 +18,21 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserInitinalisation -->
-        <test-method signature="manageNewsTest()[pri:0, instance:testscript.ManageNewsTest@765d7657]" started-at="2026-04-24T01:15:35 IST" name="manageNewsTest" finished-at="2026-04-24T01:15:41 IST" duration-ms="6092" status="PASS">
+        <test-method signature="manageNewsTest()[pri:0, instance:testscript.ManageNewsTest@14dd7b39]" started-at="2026-04-28T19:24:48 IST" name="manageNewsTest" description="Test case description" finished-at="2026-04-28T19:24:54 IST" duration-ms="6359" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- manageNewsTest -->
-        <test-method is-config="true" signature="browserQuitandClose()[pri:0, instance:testscript.ManageNewsTest@765d7657]" started-at="2026-04-24T01:15:41 IST" name="browserQuitandClose" finished-at="2026-04-24T01:15:42 IST" duration-ms="459" status="PASS">
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageNewsTest@14dd7b39]" started-at="2026-04-28T19:24:54 IST" name="browserQuit" finished-at="2026-04-28T19:24:54 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=manageNewsTest status=SUCCESS method=ManageNewsTest.manageNewsTest()[pri:0, instance:testscript.ManageNewsTest@14dd7b39] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserQuitandClose -->
+        </test-method> <!-- browserQuit -->
       </class> <!-- testscript.ManageNewsTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

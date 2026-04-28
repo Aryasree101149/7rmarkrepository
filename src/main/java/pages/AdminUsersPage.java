@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,9 +19,9 @@ public class AdminUsersPage {
 	        this.driver = driver;
 	        PageFactory.initElements(driver, this);
 	    }
-		    @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']")WebElement adminusermoreinfo;
+		    @FindBy(xpath="//a[contains(@href,'list-admin')]")WebElement adminusermoreinfo;
 		    @FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newonadminuser;
-		    @FindBy(xpath="// //input[@id='username']")WebElement usernameforadmin;
+		    @FindBy(xpath="//input[@id='username']")WebElement usernameforadmin;
 		    @FindBy(xpath="//input[@id='password']")WebElement passwordforadmin;
 		    @FindBy(xpath="//select[@id='user_type']")WebElement  usertype;
 		    @FindBy(xpath="//button[@name='Create']")WebElement  saveadminuser;
@@ -30,33 +31,34 @@ public class AdminUsersPage {
 		
 
 
-		 
-		
 		    
-	public void clickAdminUserMoreinfo() {
 		
-		adminusermoreinfo.click();
-		
-	}
-	public void clickNewonAdminUser() {
+		   
+public void clickAdminUserMoreinfo() {
+
+	 JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("arguments[0].click();", adminusermoreinfo);	    
+
+}
+public void clickNewonAdminUser() {
 		
 		newonadminuser.click();
 		
-	}
-	public void enterUserNameforAdmin(String typenewsvalue) {
+}
+public void enterUserNameforAdmin(String username) {
 		
-		usernameforadmin.sendKeys(typenewsvalue);
+		usernameforadmin.sendKeys(username);
 
-	}
-public void enterPasswordforAdmin(String typenewsvalue) {
+}
+public void enterPasswordforAdmin(String password) {
 		
-		passwordforadmin.sendKeys(typenewsvalue);
+		passwordforadmin.sendKeys(password);
 
 	}
-public void selectUserTypeforAdmin(String typenewsvalue) {
-	Select select = new Select(usertype);
-	select.selectByVisibleText("Admin");
 
+public void selectUserTypeforAdmin(String userTypeValue) {
+    Select select = new Select(usertype);
+    select.selectByVisibleText(userTypeValue);
 }
 
 	public void clickSaveonAdminUser() {
