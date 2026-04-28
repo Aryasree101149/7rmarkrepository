@@ -19,7 +19,7 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href=\'https://groceryapp.uniqassosiates.com/admin/list-category\']")
+	//@FindBy(xpath = "//a[@href=\'https://groceryapp.uniqassosiates.com/admin/list-category\']")
 	WebElement managenewscategoryinfo;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/category/edit?edit=3249&page_ad=1']")
 	WebElement categoryedit;
@@ -37,25 +37,27 @@ public class ManageCategoryPage {
 	
 	
 	
-	public void clickManageCategoryMoreinfo() {
+	/*public void clickManageCategoryMoreinfo() {
 
 		managenewscategoryinfo.click();
 
-	}
+	}*/
 
-	public void clickEditonCategoryEdit() {
+	public ManageCategoryPage clickEditonCategoryEdit() {
 
 		categoryedit.click();
+		return this;
 
 	}
 
-	public void typeCategoryName(String typecategory) {
+	public ManageCategoryPage typeCategoryName(String typecategory) {
 		categoryname.clear();
 		categoryname.sendKeys(typecategory);
+		return this;
 
 	}
 
-	public void selectDiscount() {
+	public ManageCategoryPage selectDiscount() {
 
 		
 		
@@ -67,13 +69,15 @@ public class ManageCategoryPage {
 	        Thread.sleep(500);
 	    } catch (InterruptedException e) {}
 	    actions.click(discountclick).perform();
+		return this;
 	}
 
-	public void fileUploadUsingSendKeys() {
+	public ManageCategoryPage fileUploadUsingSendKeys() {
 	    fileupload.sendKeys("C:\\Users\\ARYASREE\\Pictures\\Screenshots\\image.png.png");
+		return this;
 	}
 
-	public void clickOnUpdate() {
+	public ManageCategoryPage clickOnUpdate() {
 
 	    Waitutility wait = new Waitutility();
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -85,6 +89,7 @@ public class ManageCategoryPage {
 	    } catch (Exception e) {
 	        js.executeScript("arguments[0].click();", update);
 	    }
+		return this;
 	}
 	public boolean isCategoryUpdateAlertDisplayed() {
 		try {

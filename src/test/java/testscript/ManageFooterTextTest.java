@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageContactPage;
 import pages.ManageFooterTextPage;
@@ -13,6 +14,8 @@ import utilities.ExcelUtility;
 
 public class ManageFooterTextTest extends Base {
 
+	HomePage home;
+	ManageFooterTextPage managefooter;
     @Test(description="manage contactpage")
     public void managefootertexttest() throws IOException {
 
@@ -32,16 +35,19 @@ public class ManageFooterTextTest extends Base {
         LoginPage loginpage = new LoginPage(driver);
         loginpage.enterUserName(username);
         loginpage.enterPassword(password);
-        loginpage.clickOnSignIn();
-
-        ManageFooterTextPage footertext = new ManageFooterTextPage(driver);
-        footertext.clickfooterMoreinfo();
-        footertext.clickEditonFooterText();	     
-        footertext.updateAddress(address);
-        footertext.updateEmail(email);
-        footertext.updatePhone(phonenumber);
-        footertext.clickUpdateonFooterTextPage();
-        boolean isAlertDisplayed = footertext.isFooterUpdateAlertDisplayed();
+        //loginpage.clickOnSignIn();
+        home=loginpage.clickOnSignIn();
+        
+        
+       // ManageFooterTextPage footertext = new ManageFooterTextPage(driver);
+        managefooter= home.clickfooterMoreinfo();
+        managefooter.clickEditonFooterText();
+      //  footertext.clickEditonFooterText();	     
+        managefooter.updateAddress(address).updateEmail(email).updatePhone(phonenumber).clickUpdateonFooterTextPage();
+        //managefooter.updateEmail(email);
+       // managefooter.updatePhone(phonenumber);
+       // managefooter.clickUpdateonFooterTextPage();
+        boolean isAlertDisplayed = managefooter.isFooterUpdateAlertDisplayed();
         Assert.assertTrue(isAlertDisplayed, "Contact updated successfully");
     }
 }

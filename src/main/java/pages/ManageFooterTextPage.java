@@ -18,7 +18,7 @@ public class ManageFooterTextPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext' and @class='small-box-footer']")
+	//@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext' and @class='small-box-footer']")
 	WebElement footerTextMoreInfo;
 	@FindBy(xpath = "//i[@class='fas fa-edit']")
 	WebElement actiononfootertext;
@@ -33,37 +33,40 @@ public class ManageFooterTextPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement footerupdatealert;
 
-	public void clickfooterMoreinfo() {
+	/*public void clickfooterMoreinfo() {
 
 		footerTextMoreInfo.click();
 
-	}
+	}*/
 
 	public void clickEditonFooterText() {
 
 		actiononfootertext.click();
 	}
 
-	public void updateAddress(String address) {
+	public ManageFooterTextPage updateAddress(String address) {
 		updateaddress.clear();
 
 		updateaddress.sendKeys("address");
+		return this;
 
 	}
 
-	public void updateEmail(String email) {
+	public ManageFooterTextPage updateEmail(String email) {
 		updateemail.clear();
 
 		updateemail.sendKeys("email");
+		return this;
 	}
 
-	public void updatePhone(int phonenumber) {
+	public ManageFooterTextPage updatePhone(int phonenumber) {
 		updatephone.clear();
 
 		updatephone.sendKeys("phonenumber");
+		return this;
 	}
 
-	public void clickUpdateonFooterTextPage() {
+	public ManageFooterTextPage clickUpdateonFooterTextPage() {
 
 		Waitutility wait = new Waitutility();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -75,6 +78,7 @@ public class ManageFooterTextPage {
 		} catch (Exception e) {
 			js.executeScript("arguments[0].click();", updatefooter);
 		}
+		return this;
 	}
 
 	public boolean isFooterUpdateAlertDisplayed() {

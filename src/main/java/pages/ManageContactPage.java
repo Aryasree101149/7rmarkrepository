@@ -17,7 +17,7 @@ public class ManageContactPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-	    @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact']")WebElement managecontactmoreinfo;
+	   // @FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact']")WebElement managecontactmoreinfo;
 	    @FindBy(xpath="//i[@class='fas fa-edit']")WebElement actiononcontact;
 	    @FindBy(xpath="//input[@id='phone']")WebElement phonecontact;
 	    @FindBy(xpath="//textarea[@placeholder='Enter Delivery Time']")WebElement deliverytime;
@@ -25,29 +25,32 @@ public class ManageContactPage {
 	    @FindBy(xpath="//div[contains(@class,'alert-success')]")WebElement newsalert;
 
 	    
-public void clickContactMoreinfo() {
+/*public void clickContactMoreinfo() {
 	
 	managecontactmoreinfo.click();
 	
-}
-public void clickActiononContact() {
+}*/
+public ManageContactPage clickActiononContact() {
 	
-	actiononcontact.click();	
+	actiononcontact.click();
+	return this;	
 }
-public void typePhoneContact(int typephno) {
+public ManageContactPage typePhoneContact(String typephno) {
 	phonecontact.clear();
 	
 	phonecontact.sendKeys("phonenumber");
+	return this;
 
 }
-public void typeDeliveryTime(String time) {
+public ManageContactPage typeDeliveryTime(String time) {
 	deliverytime.clear();
 	
-	deliverytime.sendKeys(time); 
+	deliverytime.sendKeys(time);
+	return this; 
 }
 
 
-public void clickUpdateonContactPage() {
+public ManageContactPage clickUpdateonContactPage() {
 
     Waitutility wait = new Waitutility();
     JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -59,6 +62,7 @@ public void clickUpdateonContactPage() {
     } catch (Exception e) {
         js.executeScript("arguments[0].click();", updatebutton);
     }
+	return this;
 }
 
 public boolean isUpdateAlertDisplayed() {

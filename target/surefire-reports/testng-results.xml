@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-28T19:58:52 IST" name="Suite" finished-at="2026-04-28T19:59:12 IST" duration-ms="19973">
+  <suite started-at="2026-04-28T22:58:11 IST" name="Suite" finished-at="2026-04-28T22:58:21 IST" duration-ms="10606">
     <groups>
     </groups>
-    <test started-at="2026-04-28T19:58:52 IST" name="Test" finished-at="2026-04-28T19:59:12 IST" duration-ms="19973">
+    <test started-at="2026-04-28T22:58:11 IST" name="Test" finished-at="2026-04-28T22:58:21 IST" duration-ms="10606">
       <class name="testscript.ManageNewsTest">
-        <test-method is-config="true" signature="browserInitinalisation(java.lang.String)[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T19:58:52 IST" name="browserInitinalisation" finished-at="2026-04-28T19:59:04 IST" duration-ms="11187" status="PASS">
+        <test-method is-config="true" signature="browserInitinalisation(java.lang.String)[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T22:58:11 IST" name="browserInitinalisation" finished-at="2026-04-28T22:58:17 IST" duration-ms="5756" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserInitinalisation -->
-        <test-method signature="manageNewsTest()[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T19:59:04 IST" name="manageNewsTest" description="Test case description" finished-at="2026-04-28T19:59:12 IST" duration-ms="8710" status="PASS">
+        <test-method signature="manageNewsTest()[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T22:58:17 IST" name="manageNewsTest" description="Test case description" finished-at="2026-04-28T22:58:21 IST" duration-ms="4802" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- manageNewsTest -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T19:59:12 IST" name="browserQuit" finished-at="2026-04-28T19:59:12 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageNewsTest@3f191845]" started-at="2026-04-28T22:58:21 IST" name="browserQuit" finished-at="2026-04-28T22:58:21 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>

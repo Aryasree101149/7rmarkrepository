@@ -7,15 +7,20 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.util.Assert;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base {
-
+    HomePage home;
+    ManageCategoryPage categorypage;
 	@Test(description = "Test case description")
 	public void manageCategoryTest() throws IOException {
 
+		
+		
+		
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
 		//String category = ExcelUtility.getStringData(0, 1, "category");
@@ -25,16 +30,17 @@ public class ManageCategoryTest extends Base {
 		LoginPage loginpage = new LoginPage(driver);
 		loginpage.enterUserName(username);
 		loginpage.enterPassword(password);
-		loginpage.clickOnSignIn();
+		//loginpage.clickOnSignIn();
+		home= loginpage.clickOnSignIn();
 
-		ManageCategoryPage categorytest = new ManageCategoryPage(driver);
+		//ManageCategoryPage categorytest = new ManageCategoryPage(driver);
 
-		categorytest.clickManageCategoryMoreinfo();
-		categorytest.clickEditonCategoryEdit();
-		categorytest.typeCategoryName(typecategory);
-		categorytest.fileUploadUsingSendKeys();
-		categorytest.clickOnUpdate();
-		boolean isAlertDisplayed = categorytest.isCategoryUpdateAlertDisplayed();
+		categorypage=home.clickManageCategoryMoreinfo();
+		categorypage.clickEditonCategoryEdit().typeCategoryName(typecategory).fileUploadUsingSendKeys().clickOnUpdate();
+		//categorypage.typeCategoryName(typecategory);
+		//categorypage.fileUploadUsingSendKeys();
+		//categorypage.clickOnUpdate();
+		boolean isAlertDisplayed = categorypage.isCategoryUpdateAlertDisplayed();
 		
 	}
 }
