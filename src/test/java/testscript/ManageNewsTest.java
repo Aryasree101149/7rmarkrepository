@@ -13,7 +13,7 @@ import utilities.ExcelUtility;
 public class ManageNewsTest extends Base {
     HomePage home;
     ManageNewsPage newspage;
-    @Test(description="Test case description")
+    @Test(priority=1 ,description="Test case description" ,groups= {"regression"},retryAnalyzer=retry.Retry.class)
     public void manageNewsTest() throws IOException {
 
     	String username = ExcelUtility.getStringData(1, 0, "loginpage");
